@@ -10,7 +10,6 @@ import numpy as np
 import statistics
 reload(statistics)
 import matplotlib.pyplot as plt 
-import tasso as ts
 
 # Approximation of sparsity distribution of IT; b = 3.6, scale = 1; loc = 0, a = 1.632558
 def get_Rust_IT_sparsity_distribution(): 
