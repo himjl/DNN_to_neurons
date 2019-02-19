@@ -1,6 +1,6 @@
 import numpy as np 
 import pandas as pd
-import tasso as ts 
+import collections
 
 
 import rust_results 
@@ -62,7 +62,7 @@ def sample_IT_projections(Ftrain, n_projections = 100, n_projections2 = 25):
     #n_grid = 50
     
 
-    df = ts.d()
+    df = collections.defaultdict(list)
 
     for i in tqdm(range(Ftrain.shape[1]), desc = 'Projecting native neurons'):
         
@@ -183,7 +183,7 @@ def metropolis_hastings(Ftrain, nsamps = 1000, n_burn_in = 10000):
     plast = prob_params(alpha, b, vec)
 
 
-    df = ts.d()
+    df = collections.defaultdict(list)
 
     for i in tqdm(range(nsamps + n_burn_in)):
         
@@ -350,7 +350,7 @@ def discrete_rejection_sampling(df, max_iter = 500000, nsamps = 1000):
     filter_idxs = []
 
     if True: 
-        df_sim = ts.d()
+        df_sim = collections.defaultdict(list)
     with tqdm(total = nsamps, desc = 'obtained samples') as pbar:
         for i_iter in range(max_iter):
 

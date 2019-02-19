@@ -1,6 +1,5 @@
 
-import tasso as ts 
-
+import collections
 import matplotlib.pyplot as plt 
 import seaborn as sns 
 import numpy as np 
@@ -28,7 +27,7 @@ def validate(df, Ftest):
         return d
 
     def get_test(Ftest, df): 
-        df_test = ts.d()
+        df_test = collections.defaultdict(list)
         num_not_vis_responsive = 0
         for m in  tqdm(df.itertuples(), total = len(df), desc = 'statistics'): 
             alpha = m.alpha
